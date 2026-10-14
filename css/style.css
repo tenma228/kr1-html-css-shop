@@ -2,7 +2,6 @@
    1. Переменные проекта
    =============================== */
 :root {
-  /* Основные цвета проекта */
   --color-bg: #ffffff;
   --color-text: #222222;
   --color-muted: #666666;
@@ -16,19 +15,16 @@
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
 
-  /* Отступы */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
 
-  /* Скругления */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  /* Размеры */
   --container-width: 1100px;
 }
 
@@ -39,39 +35,21 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
 }
 
-header,
-main,
-footer {
-  padding: var(--space-lg);
-}
-
-header{
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: rgba(247, 247, 247);
-}
-main {
-  flex: 1;
-}
-footer {
-  background-color: var(--color-surface);
-}
-
-/* ===============================
-   3. Общие элементы интерфейса
-   =============================== */
 a {
   color: var(--color-primary);
 }
@@ -85,21 +63,42 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+.main-content {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-lg);
+}
+
 .button {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  text-decoration: none;
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  cursor: pointer;
   font: inherit;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.button:hover {
+.button--primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.button--primary:hover {
+  color: var(--color-white);
   background-color: var(--color-primary-dark);
+}
+
+.button--secondary {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+}
+
+.button--secondary:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
 .button:focus-visible {
@@ -107,86 +106,121 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-.button:disabled {
+.button:disabled,
+.button--disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.button--secondary {
-  background-color: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-}
-
-.button--secondary:hover {
-  background-color: var(--color-border);
-  color: var(--color-text);
-}
-
 /* ===============================
-   4. Компоненты страницы (Flexbox & Grid)
+   3. Шапка, навигация и подвал
    =============================== */
-
-/* --- FLEXBOX: Шапка страницы --- */
 .site-header {
-  max-width: var(--container-width);
-  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-surface);
+}
+
+.site-header__inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-md);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
 }
 
-.site-logo {
-  font-weight: bold;
-  font-size: 1.25rem;
-  text-decoration: none;
+.site-header__logo {
   color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-/* --- FLEXBOX: Навигационное меню --- */
 .site-nav__list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-md);
+  justify-content: center;
+  gap: var(--space-sm);
   padding: 0;
   margin: 0;
   list-style: none;
-  flex-wrap: wrap;
 }
 
-.site-nav__list a {
+.site-nav__link {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
   color: var(--color-primary);
   text-decoration: none;
-  font-weight: 500;
 }
 
-.site-nav__list a:hover {
-  text-decoration: underline;
+.site-nav__link:hover,
+.site-nav__link--active {
+  color: var(--color-white);
+  background-color: var(--color-primary);
 }
 
-/* --- Hero блок --- */
-.hero {
+.site-footer {
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+}
+
+.site-footer__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
   max-width: var(--container-width);
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto;
+}
+
+.site-footer__text {
+  margin: 0;
+}
+
+/* ===============================
+   4. Основное содержимое страниц
+   =============================== */
+.hero,
+.section,
+.aside-info,
+.breadcrumbs {
+  max-width: var(--container-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hero {
+  margin-bottom: var(--space-xl);
   padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-surface-accent);
   border-radius: var(--radius-lg);
+  background-color: var(--color-surface-accent);
+}
+
+.hero__title {
+  margin-top: 0;
+}
+
+.hero__text {
+  margin-bottom: var(--space-lg);
 }
 
 .section {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-xl);
+  margin-bottom: var(--space-xl);
 }
 
-.section h2 {
+.section__title {
   margin-top: 0;
   margin-bottom: var(--space-md);
 }
 
-/* --- GRID: Сетка списка преимуществ --- */
-.advantages-list {
+.advantages__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-md);
@@ -194,17 +228,22 @@ a:focus-visible {
   margin: 0;
 }
 
-/* --- GRID: Сетка товаров --- */
+.contact-info__list {
+  display: grid;
+  gap: var(--space-sm);
+  padding-left: var(--space-lg);
+}
+
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-lg);
 }
 
-/* --- FLEXBOX: Карточка товара --- */
 .product-card {
   display: flex;
   flex-direction: column;
+  gap: var(--space-sm);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -217,115 +256,177 @@ a:focus-visible {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.product-card h3 {
-  margin-top: 0;
-  margin-bottom: var(--space-xs);
+.product-card--featured {
+  border-color: var(--color-primary);
 }
 
-.product-card p {
-  margin-top: 0;
-  margin-bottom: var(--space-sm);
+.product-card--discount {
+  border-color: var(--color-danger);
+}
+
+.product-card__title,
+.product-card__description,
+.product-card__price {
+  margin: 0;
+}
+
+.product-card__description {
+  color: var(--color-muted);
 }
 
 .product-card__price {
-  font-weight: bold;
-  color: var(--color-text);
+  font-weight: 700;
 }
 
-/* Прижимаем кнопку к низу карточки с помощью margin-top: auto */
+.product-card--discount .product-card__price {
+  color: var(--color-danger);
+}
+
 .product-card__button {
   margin-top: auto;
   align-self: flex-start;
 }
 
 .aside-info {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-xl);
+  margin-bottom: var(--space-xl);
   padding: var(--space-md);
   border-left: 4px solid var(--color-primary);
   background-color: var(--color-surface);
 }
 
-/* --- FLEXBOX: Подвал страницы --- */
-.footer-content {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
+.aside-info__title {
+  margin-top: 0;
 }
 
-.footer-content p {
-  margin: 0;
+.aside-info__text {
+  margin-bottom: 0;
+}
+
+.breadcrumbs {
+  margin-bottom: var(--space-md);
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.breadcrumbs__link {
+  color: var(--color-primary);
+}
+
+.breadcrumbs__current::before {
+  content: " / ";
+  color: var(--color-muted);
 }
 
 /* ===============================
-   5. Форма и модальное окно (Flexbox)
+   5. Форма и модальное окно
    =============================== */
 .order-dialog {
-  width: min(100% - 32px, 560px);
-  padding: var(--space-lg);
+  width: min(100% - 32px, 720px);
+  max-width: 720px;
+  max-height: calc(100vh - 30px);
+  max-height: calc(100dvh - 30px);
+  overflow-y: auto;
+  padding: 28px 30px 30px;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: 14px;
+  background-color: var(--color-white);
+  overscroll-behavior: contain;
 }
 
 .order-dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.form-field {
+.order-dialog__title {
+  margin: 0 0 var(--space-lg);
+  color: #111111;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.order-form__field {
   margin-bottom: var(--space-md);
 }
 
-.form-field label {
+.order-form__label {
   display: block;
   margin-bottom: var(--space-xs);
+  font-size: 20px;
 }
 
-.form-field input,
-.form-field select,
-.form-field textarea {
+.order-form__input,
+.order-form__select,
+.order-form__textarea {
+  display: block;
   width: 100%;
-  padding: 10px 12px;
+  padding: 14px 15px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  color: var(--color-text);
   font: inherit;
+  font-size: 18px;
 }
 
-.form-field input[type="checkbox"] {
+.order-form__input::placeholder,
+.order-form__textarea::placeholder {
+  color: #858585;
+  opacity: 1;
+}
+
+.order-form__input[type="checkbox"] {
+  display: inline-block;
   width: auto;
+  padding: 0;
 }
 
-.form-field small {
+.order-form__textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.order-form__hint {
   display: block;
   margin-top: var(--space-xs);
   color: var(--color-muted);
+  font-size: 16px;
 }
 
-.form-field input:hover,
-.form-field select:hover,
-.form-field textarea:hover {
+.order-form__input:hover,
+.order-form__select:hover,
+.order-form__textarea:hover {
   border-color: var(--color-primary);
 }
 
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
+.order-form__input:focus-visible,
+.order-form__select:focus-visible,
+.order-form__textarea:focus-visible,
+.order-form__checkbox:focus-visible {
   outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
-[aria-invalid="true"] {
+.order-form__input[aria-invalid="true"],
+.order-form__select[aria-invalid="true"],
+.order-form__textarea[aria-invalid="true"],
+.order-form__checkbox[aria-invalid="true"] {
   border-color: var(--color-danger);
 }
 
-/* --- FLEXBOX: Кнопки формы --- */
-.form-actions {
+.order-form__field--checkbox {
+  display: block;
+}
+
+.order-form__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.order-form__actions {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   margin-top: var(--space-lg);
 }
@@ -338,27 +439,58 @@ a:focus-visible {
   background-color: var(--color-success-bg);
 }
 
-.breadcrumbs {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-md);
-  font-size: 14px;
-  color: var(--color-muted);
-}
-
-.breadcrumbs a {
-  color: var(--color-primary);
-}
-
-.breadcrumbs span::before {
-  content: " / ";
-  color: var(--color-muted);
-}
-
-html {
-  scroll-behavior: smooth;
+[hidden] {
+  display: none !important;
 }
 
 :target {
   outline: 2px dashed var(--color-primary);
   outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .site-header__inner {
+    justify-content: center;
+  }
+
+  .site-nav__list {
+    gap: var(--space-xs);
+  }
+
+  .site-nav__link {
+    padding: var(--space-sm);
+  }
+
+  .main-content {
+    padding: var(--space-md);
+  }
+
+  .order-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: 22px 18px;
+  }
+
+  .order-dialog__title {
+    font-size: 26px;
+  }
+
+  .order-form__label {
+    font-size: 18px;
+  }
+
+  .order-form__input,
+  .order-form__select,
+  .order-form__textarea {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .order-form__actions {
+    flex-direction: column-reverse;
+  }
+
+  .order-form__button {
+    width: 100%;
+  }
 }
