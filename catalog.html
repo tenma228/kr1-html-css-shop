@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <meta name="description" content="Каталог товаров: фильтры, характеристики и цены.">
   <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/catalog.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -15,6 +16,7 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="reviews.html">Отзывы</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
@@ -33,35 +35,127 @@
     <section class="section catalog-intro">
       <h1 class="section__title catalog-intro__title">Каталог товаров</h1>
       <p class="catalog-intro__text">
-        На этой странице представлен учебный каталог товаров.
-        В дальнейшем здесь будут добавлены фильтры, сортировка и более
-        подробные карточки.
+        Выберите категорию и сравните цены, рейтинги и основные характеристики товаров.
       </p>
+      <a class="catalog-intro__link" href="reviews.html">Отзывы покупателей</a>
     </section>
 
-    <section class="section catalog-products">
-      <h2 class="section__title catalog-products__title">Список товаров</h2>
+    <section class="section catalog-products" aria-labelledby="catalog-products-title">
+      <h2 class="section__title catalog-products__title" id="catalog-products-title">Список товаров</h2>
 
-      <div class="products-grid">
-        <article class="product-card">
+      <div class="catalog-filters" role="group" aria-label="Фильтр товаров по категории">
+        <button class="button button--filter catalog-filters__button catalog-filters__button--active" type="button" data-filter="all" aria-pressed="true">Все товары</button>
+        <button class="button button--filter catalog-filters__button" type="button" data-filter="category 1" aria-pressed="false">Категория 1</button>
+        <button class="button button--filter catalog-filters__button" type="button" data-filter="category 2" aria-pressed="false">Категория 2</button>
+        <button class="button button--filter catalog-filters__button" type="button" data-filter="category 3" aria-pressed="false">Категория 3</button>
+      </div>
+
+      <div class="products-grid catalog-products__grid">
+        <article class="product-card product-card--bestseller" data-category="category 1">
+          <span class="product-card__badge product-card__badge--bestseller">Хит продаж</span>
+          <p class="product-card__category">Категория 1</p>
           <h3 class="product-card__title">Товар 1</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 1000 руб.</p>
-          <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__availability">В наличии</p>
+          <p class="product-card__rating" aria-label="Рейтинг 4,8 из 5">★★★★★ <span>4,8</span></p>
+          <ul class="product-card__specs">
+            <li class="product-card__spec">Характеристика 1</li>
+            <li class="product-card__spec">Характеристика 2</li>
+            <li class="product-card__spec">Характеристика 3</li>
+          </ul>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">X XXX руб.</span></p>
+          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
         </article>
 
-        <article class="product-card">
+        <article class="product-card" data-category="category 2">
+          <p class="product-card__category">Категория 2</p>
           <h3 class="product-card__title">Товар 2</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 1500 руб.</p>
-          <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__availability--out">Нет в наличии</p>
+          <p class="product-card__rating" aria-label="Рейтинг 4,6 из 5">★★★★★ <span>4,6</span></p>
+          <ul class="product-card__specs">
+            <li class="product-card__spec">Характеристика 1</li>
+            <li class="product-card__spec">Характеристика 2</li>
+            <li class="product-card__spec">Характеристика 3</li>
+          </ul>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
+          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
         </article>
 
-        <article class="product-card">
+        <article class="product-card product-card--discount" data-category="category 3">
+          <span class="product-card__badge product-card__badge--discount">Скидка</span>
+          <p class="product-card__category">Категория 3</p>
           <h3 class="product-card__title">Товар 3</h3>
-          <p class="product-card__description">Краткое описание учебного товара.</p>
-          <p class="product-card__price">Цена: 2000 руб.</p>
-          <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__availability">В наличии</p>
+          <p class="product-card__rating" aria-label="Рейтинг 4,7 из 5">★★★★★ <span>4,7</span></p>
+          <ul class="product-card__specs">
+            <li class="product-card__spec">Характеристика 1</li>
+            <li class="product-card__spec">Характеристика 2</li>
+            <li class="product-card__spec">Характеристика 3</li>
+          </ul>
+          <p class="product-card__price">
+            Цена: <span class="product-card__price-old">Х ХХХ руб.</span>
+            <span class="product-card__price-value">Y YYY руб.</span>
+          </p>
+          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
+        </article>
+
+        <article class="product-card" data-category="category 1">
+          <p class="product-card__category">Категория 1</p>
+          <h3 class="product-card__title">Товар 4</h3>
+          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__availability">В наличии</p>
+          <p class="product-card__rating" aria-label="Рейтинг 4,5 из 5">★★★★★ <span>4,5</span></p>
+          <ul class="product-card__specs">
+            <li class="product-card__spec">Характеристика 1</li>
+            <li class="product-card__spec">Характеристика 2</li>
+            <li class="product-card__spec">Характеристика 3</li>
+          </ul>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
+          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
+        </article>
+
+        <article class="product-card" data-category="category 3">
+          <p class="product-card__category">Категория 3</p>
+          <h3 class="product-card__title">Товар 5</h3>
+          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__availability">В наличии</p>
+          <p class="product-card__rating" aria-label="Рейтинг 4,4 из 5">★★★★★ <span>4,4</span></p>
+          <ul class="product-card__specs">
+            <li class="product-card__spec">Характеристика 1</li>
+            <li class="product-card__spec">Характеристика 2</li>
+            <li class="product-card__spec">Характеристика 3</li>
+          </ul>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
+          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
+        </article>
+
+        <article class="product-card" data-category="category 2">
+          <p class="product-card__category">Категория 2</p>
+          <h3 class="product-card__title">Товар 6</h3>
+          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__availability">В наличии</p>
+          <p class="product-card__rating" aria-label="Рейтинг 4,9 из 5">★★★★★ <span>4,9</span></p>
+          <ul class="product-card__specs">
+            <li class="product-card__spec">Характеристика 1</li>
+            <li class="product-card__spec">Характеристика 2</li>
+            <li class="product-card__spec">Характеристика 3</li>
+          </ul>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
+          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
         </article>
       </div>
     </section>
