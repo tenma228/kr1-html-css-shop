@@ -99,3 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+const modals = document.querySelectorAll('dialog');
+
+modals.forEach((modal) => {
+  modal.addEventListener('click', (event) => {
+    const rect = modal.getBoundingClientRect();
+    const isInDialog = (
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom
+    );
+    // Если кликнули за пределами содержимого окна (на сам бэкдроп)
+    if (!isInDialog) {
+      modal.close();
+    }
+  });
+});
