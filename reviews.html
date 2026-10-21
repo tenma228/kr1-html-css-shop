@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Страница отзывов на товары.">
-  <title>Отзывы — Учебный интернет-магазин</title>
+  <title>Отзывы — МастерИнструмент</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/reviews.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">МастерИнструмент</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
@@ -33,26 +34,90 @@
     </nav>
 
     <section class="section category-page">
-      <h1 class="section__title category-page__title">Отзывы о товарах</h1>
-      <p class="category-page__text">
-        На этой странице будут собраны отзывы покупателей о товарах.
-      </p>
-      <div class="category-reviews" id="reviews" aria-live="polite">
-        <p class="category-reviews__empty">Пока отзывов нет. Будут реализованы в рамках контрольной работы 2</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+        <h1 class="section__title category-page__title" style="margin-bottom: 0;">Отзывы о товарах</h1>
       </div>
-      <a class="button button--secondary category-page__back" href="catalog.html">Вернуться в каталог</a>
+
+      <p class="category-page__text">
+        Здесь вы можете ознакомиться с реальными мнениями наших покупателей или поделиться своим впечатлением об инструменте.
+      </p>
+
+      <!-- Блок со списком отзывов -->
+      <div class="category-reviews" id="reviews" aria-live="polite" style="display: grid; gap: 16px;">
+        <article style="padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background-color: var(--color-bg);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <h3 style="margin: 0; font-size: 1.1rem;">Алексей Петров</h3>
+            <span style="color: #e49b00; letter-spacing: 0.08em;">★★★★★</span>
+          </div>
+          <p style="margin: 0 0 8px 0; color: var(--color-muted); font-size: 0.9rem;">Товар: Аккумуляторная дрель-шуруповерт</p>
+          <p style="margin: 0;">Отличный шуруповерт! Брал для дачи и дома, заряда аккумуляторов хватает надолго, в руке лежит удобно.</p>
+        </article>
+
+        <article style="padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background-color: var(--color-bg);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <h3 style="margin: 0; font-size: 1.1rem;">Алексей Алексеев</h3>
+            <span style="color: #e49b00; letter-spacing: 0.08em;">★★★★☆</span>
+          </div>
+          <p style="margin: 0 0 8px 0; color: var(--color-muted); font-size: 0.9rem;">Товар: Набор слесарных инструментов</p>
+          <p style="margin: 0;">Качественный металл, кейс прочный. Трещотки работают плавно. Рекомендую к покупке.</p>
+        </article>
+      </div>
+
+      <div style="margin-top: 24px;">
+        <a class="button button--secondary category-page__back" href="catalog.html">Вернуться в каталог</a>
+        <button class="button button--primary" id="open-review-dialog" type="button">Написать отзыв</button>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__content">
-      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+      <p class="site-footer__text">&copy; 2026 Магазин «МастерИнструмент». Все права защищены.</p>
+      <p class="site-footer__text">Телефон: +7 (800) 555-35-35</p>
     </div>
   </footer>
 
-  <button class="scroll-top" id="scroll-top-btn" aria-label="Прокрутить наверх"hidden>
-  ↑
-</button>
+  <!-- Модальное окно для написания отзыва -->
+  <dialog class="order-dialog" id="review-dialog" aria-labelledby="review-dialog-title">
+    <h2 class="order-dialog__title" id="review-dialog-title">Оставить отзыв</h2>
+
+    <form class="order-form order-dialog__form" id="review-form" action="#" method="post" novalidate>
+      <div class="order-form__field">
+        <label class="order-form__label" for="review-name">Ваше имя</label>
+        <input class="order-form__input" id="review-name" name="name" type="text" placeholder="Введите ваше имя" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="review-product">Название товара</label>
+        <input class="order-form__input" id="review-product" name="product" type="text" placeholder="Какой инструмент вы оцениваете?" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="review-rating">Оценка (от 1 до 5)</label>
+        <select class="order-form__select" id="review-rating" name="rating" required>
+          <option value="">Выберите оценку</option>
+          <option value="★★★★★">5 — Отлично</option>
+          <option value="★★★★☆">4 — Хорошо</option>
+          <option value="★★★☆☆">3 — Нормально</option>
+          <option value="★★☆☆☆">2 — Плохо</option>
+          <option value="★☆☆☆☆">1 — Ужасно</option>
+        </select>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="review-text">Текст отзыва</label>
+        <textarea class="order-form__textarea" id="review-text" name="text" rows="4" placeholder="Поделитесь своими впечатлениями о товаре" required></textarea>
+      </div>
+
+      <div class="order-form__actions">
+        <button type="button" class="button button--secondary order-form__button" id="close-review-dialog">Закрыть</button>
+        <button type="submit" class="button button--primary order-form__button">Отправить отзыв</button>
+      </div>
+    </form>
+  </dialog>
+
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Прокрутить наверх" hidden>
+    ↑
+  </button>
 </body>
 </html>

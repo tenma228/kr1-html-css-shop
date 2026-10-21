@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Главная страница магазина инструмента и оборудования.">
-  <title>Магазин МастерИнструмент</title>
+  <meta name="description" content="Главная страница учебного интернет-магазина.">
+  <title>Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="index.html">МастерИнструмент</a>
+    <a class="site-header__logo" href="index.html">ShopProject</a>
     <nav class="site-nav" aria-label="Основная навигация">
       <ul class="site-nav__list">
         <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
@@ -28,20 +28,20 @@
 
 <main class="main-content">
   <section class="hero">
-    <h1 class="hero__title">Профессиональный инструмент для любых задач</h1>
+    <h1 class="hero__title">Учебный интернет-магазин</h1>
     <p class="hero__text">
-      Широкий ассортимент качественного электроинструмента, садовой техники и ручного инвентаря с доставкой.
+      Многостраничный интернет-ресурс, разработанный в рамках учебного проекта.
     </p>
     <a class="button button--primary hero__button" href="catalog.html">Перейти к товарам</a>
   </section>
 
   <section class="section advantages" id="advantages">
-    <h2 class="section__title advantages__title">Наши преимущества</h2>
+    <h2 class="section__title advantages__title">Преимущества проекта</h2>
     <ul class="advantages__list">
-      <li class="advantages__item">Только сертифицированная продукция от мировых брендов;</li>
-      <li class="advantages__item">Официальная гарантия и собственный сервисный центр;</li>
-      <li class="advantages__item">Быстрая доставка по всей стране удобным способом;</li>
-      <li class="advantages__item">Профессиональные консультации и помощь в выборе.</li>
+      <li class="advantages__item">понятная HTML-структура;</li>
+      <li class="advantages__item">семантические блоки страницы;</li>
+      <li class="advantages__item">подключение внешнего CSS-файла;</li>
+      <li class="advantages__item">подготовка к разработке многостраничного сайта.</li>
     </ul>
   </section>
 
@@ -50,6 +50,7 @@
 
     <div class="products-grid catalog-preview__grid">
       <article class="product-card product-card--bestseller catalog-preview__card" data-category="Электроинструмент">
+        <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=2982fcd7626effe9a4617c14ace864bdcca2f678-5858040-images-thumbs&n=13" alt="Аккумуляторная дрель-шуруповерт" width="240" height="180">
         <span class="product-card__badge product-card__badge--bestseller">Хит продаж</span>
         <p class="product-card__category">Электроинструмент</p>
         <h3 class="product-card__title">Аккумуляторная дрель-шуруповерт</h3>
@@ -64,13 +65,14 @@
         <p class="product-card__price">Цена: <span class="product-card__price-value">6 490 руб.</span></p>
         <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
           <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Аккумуляторная дрель-шуруповерт" data-desc="Надежный помощник для сборки мебели, сверления отверстий и закручивания крепежа. В комплекте два литий-ионных аккумулятора, зарядное устройство и прочный пластиковый кейс." data-price="6 490 руб.">Подробнее</button>
-          <button class="button button--primary product-card__button" type="button" data-product="Аккумуляторная дрель-шуруповерт">
+          <button class="button button--primary product-card__button order-btn" type="button" data-product="Аккумуляторная дрель-шуруповерт">
             Заказать
           </button>
         </div>
       </article>
 
       <article class="product-card catalog-preview__card" data-category="Садовая техника">
+        <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=87173ebf83e35363c8de2919709b0b04bd789d1c-10926796-images-thumbs&n=13" alt="Бензиновая газонокосилка" width="240" height="180">
         <p class="product-card__category">Садовая техника</p>
         <h3 class="product-card__title">Бензиновая газонокосилка</h3>
         <p class="product-card__description">Самоходная модель с регулировкой высоты скашивания</p>
@@ -84,13 +86,14 @@
         <p class="product-card__price">Цена: <span class="product-card__price-value">24 990 руб.</span></p>
         <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
           <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Бензиновая газонокосилка" data-desc="Высокопроизводительная самоходная газонокосилка для ухода за большими участками. Оснащена вместительным травосборником и функцией мульчирования." data-price="24 990 руб.">Подробнее</button>
-          <button class="button button--primary product-card__button" type="button" data-product="Бензиновая газонокосилка">
+          <button class="button button--primary product-card__button order-btn" type="button" data-product="Бензиновая газонокосилка">
             Заказать
           </button>
         </div>
       </article>
 
       <article class="product-card product-card--discount catalog-preview__card" data-category="Ручной инструмент">
+        <img class="product-card__image" src="https://cdn.vseinstrumenti.ru/images/goods/ruchnoj-instrument/nabory-ruchnogo-instrumenta/1065872/560x504/180822179.jpg" alt="Набор слесарных инструментов" width="240" height="180">
         <span class="product-card__badge product-card__badge--discount">Скидка</span>
         <p class="product-card__category">Ручной инструмент</p>
         <h3 class="product-card__title">Набор слесарных инструментов</h3>
@@ -108,7 +111,7 @@
         </p>
         <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
           <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Набор слесарных инструментов" data-desc="Профессиональный набор инструментов для авторемонта и домашних работ. Все элементы выполнены из прочной легированной стали и устойчивы к коррозии." data-price="5 990 руб.">Подробнее</button>
-          <button class="button button--primary product-card__button" type="button" data-product="Набор слесарных инструментов">
+          <button class="button button--primary product-card__button order-btn" type="button" data-product="Набор слесарных инструментов">
             Заказать
           </button>
         </div>
@@ -117,17 +120,18 @@
   </section>
 
   <aside class="aside-info">
-    <h2 class="aside-info__title">Информация для покупателей</h2>
+    <h2 class="aside-info__title">Информация для студентов</h2>
     <p class="aside-info__text">
-      Мы работаем как с розничными клиентами, так и с юридическими лицами. Возможна оплата при получении или по безналичному расчету.
+      Проект включает формы, модальное окно, дополнительные страницы,
+      Flex/Grid, БЭМ-структуру и адаптивное оформление.
     </p>
   </aside>
 </main>
 
 <footer class="site-footer" id="contacts">
   <div class="site-footer__content">
-    <p class="site-footer__text">&copy; 2026 Магазин «МастерИнструмент». Все права защищены.</p>
-    <p class="site-footer__text">Телефон: +7 (800) 555-35-35</p>
+    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </div>
 </footer>
 
@@ -230,9 +234,11 @@
   </form>
 </dialog>
 
+<!-- Модальное окно подробного описания товара -->
 <dialog class="order-dialog" id="detail-dialog" aria-labelledby="detail-dialog-title">
   <h2 class="order-dialog__title" id="detail-dialog-title">Описание товара</h2>
-  <div style="margin-bottom: var(--space-lg);">
+  <div style="margin-bottom: var(--space-lg); display: flex; flex-direction: column; gap: 12px;">
+    <img id="detail-img" src="" alt="" style="width: 100%; height: 220px; object-fit: contain; background-color: var(--color-surface); border-radius: var(--radius-sm); padding: 8px;">
     <h3 id="detail-title" style="margin-top: 0; color: var(--color-primary);"></h3>
     <p id="detail-desc" style="color: var(--color-muted);"></p>
     <p style="font-weight: 700; font-size: 1.1rem;">Цена: <span id="detail-price"></span></p>
