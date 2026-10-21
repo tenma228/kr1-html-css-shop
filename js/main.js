@@ -114,19 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Закрытие модального окна при клике на фоновую область (бэкдроп)
 const modals = document.querySelectorAll('dialog');
 
 modals.forEach((modal) => {
   modal.addEventListener('click', (event) => {
-    const rect = modal.getBoundingClientRect();
-    const isInDialog = (
-      event.clientX >= rect.left &&
-      event.clientX <= rect.right &&
-      event.clientY >= rect.top &&
-      event.clientY <= rect.bottom
-    );
-    // Если кликнули за пределами содержимого окна (на сам бэкдроп)
-    if (!isInDialog) {
+    // Если клик пришелся строго по самому тегу <dialog> (по его темному фону), а не по контенту
+    if (event.target === modal) {
       modal.close();
     }
   });

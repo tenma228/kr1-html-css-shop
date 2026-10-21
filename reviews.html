@@ -65,56 +65,16 @@
 
       <div style="margin-top: 24px;">
         <a class="button button--secondary category-page__back" href="catalog.html">Вернуться в каталог</a>
-        <button class="button button--primary" id="open-review-dialog" type="button">Написать отзыв</button>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__content">
-      <p class="site-footer__text">&copy; 2026 Магазин «МастерИнструмент». Все права защищены.</p>
+      <p class="site-footer__text">&copy; 2026 Магазин «Мастер на все руки». Все права защищены.</p>
       <p class="site-footer__text">Телефон: +7 (800) 555-35-35</p>
     </div>
   </footer>
-
-  <!-- Модальное окно для написания отзыва -->
-  <dialog class="order-dialog" id="review-dialog" aria-labelledby="review-dialog-title">
-    <h2 class="order-dialog__title" id="review-dialog-title">Оставить отзыв</h2>
-
-    <form class="order-form order-dialog__form" id="review-form" action="#" method="post" novalidate>
-      <div class="order-form__field">
-        <label class="order-form__label" for="review-name">Ваше имя</label>
-        <input class="order-form__input" id="review-name" name="name" type="text" placeholder="Введите ваше имя" required>
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="review-product">Название товара</label>
-        <input class="order-form__input" id="review-product" name="product" type="text" placeholder="Какой инструмент вы оцениваете?" required>
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="review-rating">Оценка (от 1 до 5)</label>
-        <select class="order-form__select" id="review-rating" name="rating" required>
-          <option value="">Выберите оценку</option>
-          <option value="★★★★★">5 — Отлично</option>
-          <option value="★★★★☆">4 — Хорошо</option>
-          <option value="★★★☆☆">3 — Нормально</option>
-          <option value="★★☆☆☆">2 — Плохо</option>
-          <option value="★☆☆☆☆">1 — Ужасно</option>
-        </select>
-      </div>
-
-      <div class="order-form__field">
-        <label class="order-form__label" for="review-text">Текст отзыва</label>
-        <textarea class="order-form__textarea" id="review-text" name="text" rows="4" placeholder="Поделитесь своими впечатлениями о товаре" required></textarea>
-      </div>
-
-      <div class="order-form__actions">
-        <button type="button" class="button button--secondary order-form__button" id="close-review-dialog">Закрыть</button>
-        <button type="submit" class="button button--primary order-form__button">Отправить отзыв</button>
-      </div>
-    </form>
-  </dialog>
 
   <button class="scroll-top" id="scroll-top-btn" aria-label="Прокрутить наверх" hidden>
     ↑

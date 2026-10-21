@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Главная страница учебного интернет-магазина.">
-  <title>Учебный интернет-магазин</title>
+  <title>Главная — Мастер на все руки</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="index.html">ShopProject</a>
+    <a class="site-header__logo" href="index.html">Мастер на все руки</a>
     <nav class="site-nav" aria-label="Основная навигация">
       <ul class="site-nav__list">
         <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
@@ -28,21 +28,11 @@
 
 <main class="main-content">
   <section class="hero">
-    <h1 class="hero__title">Учебный интернет-магазин</h1>
+    <h1 class="hero__title">Мастер на все руки</h1>
     <p class="hero__text">
-      Многостраничный интернет-ресурс, разработанный в рамках учебного проекта.
+      Добро пожаловать в учебный интернет-магазин инструментов! Здесь вы найдете широкий ассортимент товаров для ремонта, строительства и садоводства. Мы предлагаем качественные инструменты по доступным ценам, а также полезные советы и инструкции для ваших проектов.
     </p>
     <a class="button button--primary hero__button" href="catalog.html">Перейти к товарам</a>
-  </section>
-
-  <section class="section advantages" id="advantages">
-    <h2 class="section__title advantages__title">Преимущества проекта</h2>
-    <ul class="advantages__list">
-      <li class="advantages__item">понятная HTML-структура;</li>
-      <li class="advantages__item">семантические блоки страницы;</li>
-      <li class="advantages__item">подключение внешнего CSS-файла;</li>
-      <li class="advantages__item">подготовка к разработке многостраничного сайта.</li>
-    </ul>
   </section>
 
   <section class="section catalog-preview" id="popular">
@@ -120,20 +110,19 @@
   </section>
 
   <aside class="aside-info">
-    <h2 class="aside-info__title">Информация для студентов</h2>
+    <h2 class="aside-info__title">Важно</h2>
     <p class="aside-info__text">
-      Проект включает формы, модальное окно, дополнительные страницы,
-      Flex/Grid, БЭМ-структуру и адаптивное оформление.
+      Поделитесь своими впечатлениями о наших товарах! Мы стараемся стать лучше благодаря вашим отзывам.
     </p>
   </aside>
 </main>
 
-<footer class="site-footer" id="contacts">
-  <div class="site-footer__content">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
-  </div>
-</footer>
+<footer class="site-footer">
+    <div class="site-footer__content">
+      <p class="site-footer__text">&copy; 2026 Магазин «Мастер на все руки». Все права защищены.</p>
+      <p class="site-footer__text">Телефон: +7 (800) 555-35-35</p>
+    </div>
+  </footer>
 
 <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
   <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
@@ -235,16 +224,20 @@
 </dialog>
 
 <!-- Модальное окно подробного описания товара -->
-<dialog class="order-dialog" id="detail-dialog" aria-labelledby="detail-dialog-title">
-  <h2 class="order-dialog__title" id="detail-dialog-title">Описание товара</h2>
-  <div style="margin-bottom: var(--space-lg); display: flex; flex-direction: column; gap: 12px;">
-    <img id="detail-img" src="" alt="" style="width: 100%; height: 220px; object-fit: contain; background-color: var(--color-surface); border-radius: var(--radius-sm); padding: 8px;">
-    <h3 id="detail-title" style="margin-top: 0; color: var(--color-primary);"></h3>
-    <p id="detail-desc" style="color: var(--color-muted);"></p>
-    <p style="font-weight: 700; font-size: 1.1rem;">Цена: <span id="detail-price"></span></p>
-  </div>
-  <div class="order-form__actions">
-    <button type="button" class="button button--secondary order-form__button" id="close-detail-dialog">Закрыть</button>
+<dialog class="order-dialog detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+  <div class="detail-dialog__layout">
+    <img class="detail-dialog__image" id="detail-img" src="" alt="">
+    <section class="detail-dialog__content" aria-label="Информация о товаре">
+      <h2 class="order-dialog__title detail-dialog__title" id="detail-title"></h2>
+      <p class="detail-dialog__price">Цена: <span id="detail-price"></span></p>
+      <h3 class="detail-dialog__section-title">Описание</h3>
+      <p class="detail-dialog__description" id="detail-desc"></p>
+      <h3 class="detail-dialog__section-title">Характеристики</h3>
+      <ul class="detail-dialog__specs" id="detail-specs"></ul>
+      <div class="order-form__actions">
+        <button type="button" class="button button--secondary order-form__button" id="close-detail-dialog">Закрыть</button>
+      </div>
+    </section>
   </div>
 </dialog>
 
