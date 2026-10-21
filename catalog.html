@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров: фильтры, характеристики и цены.">
-  <title>Каталог товаров — Учебный интернет-магазин</title>
+  <meta name="description" content="Каталог инструментов: фильтры, характеристики и цены.">
+  <title>Каталог товаров — Мастер на все руки</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/catalog.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">Мастер на все руки</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
@@ -35,7 +35,7 @@
     <section class="section catalog-intro">
       <h1 class="section__title catalog-intro__title">Каталог товаров</h1>
       <p class="catalog-intro__text">
-        Выберите категорию и сравните цены, рейтинги и основные характеристики товаров.
+        Выберите категорию и сравните цены, рейтинги и основные характеристики инструментов.
       </p>
       <a class="catalog-intro__link" href="reviews.html">Отзывы покупателей</a>
     </section>
@@ -45,117 +45,141 @@
 
       <div class="catalog-filters" role="group" aria-label="Фильтр товаров по категории">
         <button class="button button--filter catalog-filters__button catalog-filters__button--active" type="button" data-filter="all" aria-pressed="true">Все товары</button>
-        <button class="button button--filter catalog-filters__button" type="button" data-filter="category 1" aria-pressed="false">Категория 1</button>
-        <button class="button button--filter catalog-filters__button" type="button" data-filter="category 2" aria-pressed="false">Категория 2</button>
-        <button class="button button--filter catalog-filters__button" type="button" data-filter="category 3" aria-pressed="false">Категория 3</button>
+        <button class="button button--filter catalog-filters__button" type="button" data-filter="Электроинструмент" aria-pressed="false">Электроинструмент</button>
+        <button class="button button--filter catalog-filters__button" type="button" data-filter="Садовая техника" aria-pressed="false">Садовая техника</button>
+        <button class="button button--filter catalog-filters__button" type="button" data-filter="Ручной инструмент" aria-pressed="false">Ручной инструмент</button>
       </div>
 
       <div class="products-grid catalog-products__grid">
-        <article class="product-card product-card--bestseller" data-category="category 1">
+        <article class="product-card product-card--bestseller" data-category="Электроинструмент">
+          <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=2982fcd7626effe9a4617c14ace864bdcca2f678-5858040-images-thumbs&n=13" alt="Аккумуляторная дрель-шуруповерт" width="240" height="180">
           <span class="product-card__badge product-card__badge--bestseller">Хит продаж</span>
-          <p class="product-card__category">Категория 1</p>
-          <h3 class="product-card__title">Товар 1</h3>
-          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__category">Электроинструмент</p>
+          <h3 class="product-card__title">Аккумуляторная дрель-шуруповерт</h3>
+          <p class="product-card__description">Мощный инструмент с двумя аккумуляторами</p>
           <p class="product-card__availability">В наличии</p>
           <p class="product-card__rating" aria-label="Рейтинг 4,8 из 5">★★★★★ <span>4,8</span></p>
           <ul class="product-card__specs">
-            <li class="product-card__spec">Характеристика 1</li>
-            <li class="product-card__spec">Характеристика 2</li>
-            <li class="product-card__spec">Характеристика 3</li>
+            <li class="product-card__spec">Крутящий момент: 35 Нм</li>
+            <li class="product-card__spec">Емкость: 2.0 Ач</li>
+            <li class="product-card__spec">Быстрозажимной патрон</li>
           </ul>
-          <p class="product-card__price">Цена: <span class="product-card__price-value">X XXX руб.</span></p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">6 490 руб.</span></p>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Аккумуляторная дрель-шуруповерт" data-desc="Надежный помощник для сборки мебели, сверления отверстий и закручивания крепежа. В комплекте два литий-ионных аккумулятора." data-price="6 490 руб.">Подробнее</button>
+            <button class="button button--primary product-card__button order-btn" type="button" data-product="Аккумуляторная дрель-шуруповерт">
+              Заказать
+            </button>
+          </div>
         </article>
 
-        <article class="product-card" data-category="category 2">
-          <p class="product-card__category">Категория 2</p>
-          <h3 class="product-card__title">Товар 2</h3>
-          <p class="product-card__description">Описание товара</p>
+        <article class="product-card" data-category="Садовая техника">
+          <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=87173ebf83e35363c8de2919709b0b04bd789d1c-10926796-images-thumbs&n=13" alt="Бензиновая газонокосилка" width="240" height="180">
+          <p class="product-card__category">Садовая техника</p>
+          <h3 class="product-card__title">Бензиновая газонокосилка</h3>
+          <p class="product-card__description">Самоходная модель с травосборником</p>
           <p class="product-card__availability--out">Нет в наличии</p>
           <p class="product-card__rating" aria-label="Рейтинг 4,6 из 5">★★★★★ <span>4,6</span></p>
           <ul class="product-card__specs">
-            <li class="product-card__spec">Характеристика 1</li>
-            <li class="product-card__spec">Характеристика 2</li>
-            <li class="product-card__spec">Характеристика 3</li>
+            <li class="product-card__spec">Ширина скашивания: 46 см</li>
+            <li class="product-card__spec">Объем: 50 л</li>
+            <li class="product-card__spec">Мощность: 3.5 л.с.</li>
           </ul>
-          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">24 990 руб.</span></p>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Бензиновая газонокосилка" data-desc="Высокопроизводительная самоходная газонокосилка для ухода за большими участками." data-price="24 990 руб.">Подробнее</button>
+            <button class="button button--primary product-card__button order-btn" type="button" data-product="Бензиновая газонокосилка">
+              Заказать
+            </button>
+          </div>
         </article>
 
-        <article class="product-card product-card--discount" data-category="category 3">
+        <article class="product-card product-card--discount" data-category="Ручной инструмент">
+          <img class="product-card__image" src="https://cdn.vseinstrumenti.ru/images/goods/ruchnoj-instrument/nabory-ruchnogo-instrumenta/1065872/560x504/180822179.jpg" alt="Набор слесарных инструментов" width="240" height="180">
           <span class="product-card__badge product-card__badge--discount">Скидка</span>
-          <p class="product-card__category">Категория 3</p>
-          <h3 class="product-card__title">Товар 3</h3>
-          <p class="product-card__description">Описание товара</p>
+          <p class="product-card__category">Ручной инструмент</p>
+          <h3 class="product-card__title">Набор слесарных инструментов</h3>
+          <p class="product-card__description">Универсальный комплект из 82 предметов</p>
           <p class="product-card__availability">В наличии</p>
           <p class="product-card__rating" aria-label="Рейтинг 4,7 из 5">★★★★★ <span>4,7</span></p>
           <ul class="product-card__specs">
-            <li class="product-card__spec">Характеристика 1</li>
-            <li class="product-card__spec">Характеристика 2</li>
-            <li class="product-card__spec">Характеристика 3</li>
+            <li class="product-card__spec">Хром-ванадиевая сталь</li>
+            <li class="product-card__spec">Трещотки с быстрым сбросом</li>
+            <li class="product-card__spec">Кейс в комплекте</li>
           </ul>
           <p class="product-card__price">
-            Цена: <span class="product-card__price-old">Х ХХХ руб.</span>
-            <span class="product-card__price-value">Y YYY руб.</span>
+            Цена: <span class="product-card__price-old">7 500 руб.</span>
+            <span class="product-card__price-value">5 990 руб.</span>
           </p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Набор слесарных инструментов" data-desc="Профессиональный набор инструментов для авторемонта и домашних работ." data-price="5 990 руб.">Подробнее</button>
+            <button class="button button--primary product-card__button order-btn" type="button" data-product="Набор слесарных инструментов">
+              Заказать
+            </button>
+          </div>
         </article>
 
-        <article class="product-card" data-category="category 1">
-          <p class="product-card__category">Категория 1</p>
-          <h3 class="product-card__title">Товар 4</h3>
-          <p class="product-card__description">Описание товара</p>
+        <article class="product-card" data-category="Электроинструмент">
+          <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=65f9d3bb5b5b6b733fc3f46f691f5033d65bbba6-5151246-images-thumbs&n=13" alt="Угловая шлифмашина (Болгарка)" width="240" height="180">
+          <p class="product-card__category">Электроинструмент</p>
+          <h3 class="product-card__title">Угловая шлифмашина (Болгарка)</h3>
+          <p class="product-card__description">Надежный инструмент для резки и шлифовки</p>
           <p class="product-card__availability">В наличии</p>
           <p class="product-card__rating" aria-label="Рейтинг 4,5 из 5">★★★★★ <span>4,5</span></p>
           <ul class="product-card__specs">
-            <li class="product-card__spec">Характеристика 1</li>
-            <li class="product-card__spec">Характеристика 2</li>
-            <li class="product-card__spec">Характеристика 3</li>
+            <li class="product-card__spec">Диаметр диска: 125 мм</li>
+            <li class="product-card__spec">Мощность: 900 Вт</li>
+            <li class="product-card__spec">Защита от непреднамеренного пуска</li>
           </ul>
-          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">3 890 руб.</span></p>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Угловая шлифмашина (Болгарка)" data-desc="Эргономичная болгарка для работы по металлу, камню и бетону с эффективной системой охлаждения." data-price="3 890 руб.">Подробнее</button>
+            <button class="button button--primary product-card__button order-btn" type="button" data-product="Угловая шлифмашина">
+              Заказать
+            </button>
+          </div>
         </article>
 
-        <article class="product-card" data-category="category 3">
-          <p class="product-card__category">Категория 3</p>
-          <h3 class="product-card__title">Товар 5</h3>
-          <p class="product-card__description">Описание товара</p>
+        <article class="product-card" data-category="Ручной инструмент">
+          <img class="product-card__image" src="https://mehanizm.pro/image/cache/catalog/product/a53d0ffa-bf1e-11e8-9934-ae1d5b2f41cc_20626d53-04e4-11e9-9941-ae1d5b2f41cc-300x275.jpg" alt="Гидравлический домкрат" width="240" height="180">
+          <p class="product-card__category">Ручной инструмент</p>
+          <h3 class="product-card__title">Гидравлический домкрат</h3>
+          <p class="product-card__description">Подкатной домкрат грузоподъемностью 2 т</p>
           <p class="product-card__availability">В наличии</p>
           <p class="product-card__rating" aria-label="Рейтинг 4,4 из 5">★★★★★ <span>4,4</span></p>
           <ul class="product-card__specs">
-            <li class="product-card__spec">Характеристика 1</li>
-            <li class="product-card__spec">Характеристика 2</li>
-            <li class="product-card__spec">Характеристика 3</li>
+            <li class="product-card__spec">Грузоподъемность: 2000 кг</li>
+            <li class="product-card__spec">Высота подъема: 135–330 мм</li>
+            <li class="product-card__spec">Плавный ход</li>
           </ul>
-          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">2 790 руб.</span></p>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Гидравлический домкрат" data-desc="Надежный подкатной домкрат для обслуживания легковых автомобилей в гараже и в дороге." data-price="2 790 руб.">Подробнее</button>
+            <button class="button button--primary product-card__button order-btn" type="button" data-product="Гидравлический домкрат">
+              Заказать
+            </button>
+          </div>
         </article>
 
-        <article class="product-card" data-category="category 2">
-          <p class="product-card__category">Категория 2</p>
-          <h3 class="product-card__title">Товар 6</h3>
-          <p class="product-card__description">Описание товара</p>
+        <article class="product-card" data-category="Садовая техника">
+          <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=6f1e5910b25fc5a9a93efacce02ef1941a1ab89e-4026981-images-thumbs&n=13" alt="Электрический триммер" width="240" height="180">
+          <p class="product-card__category">Садовая техника</p>
+          <h3 class="product-card__title">Электрический триммер</h3>
+          <p class="product-card__description">Легкий инструмент для скашивания травы</p>
           <p class="product-card__availability">В наличии</p>
           <p class="product-card__rating" aria-label="Рейтинг 4,9 из 5">★★★★★ <span>4,9</span></p>
           <ul class="product-card__specs">
-            <li class="product-card__spec">Характеристика 1</li>
-            <li class="product-card__spec">Характеристика 2</li>
-            <li class="product-card__spec">Характеристика 3</li>
+            <li class="product-card__spec">Мощность: 1000 Вт</li>
+            <li class="product-card__spec">Режущий элемент: леска / нож</li>
+            <li class="product-card__spec">Прямая разборная штанга</li>
           </ul>
-          <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <p class="product-card__price">Цена: <span class="product-card__price-value">4 590 руб.</span></p>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Электрический триммер" data-desc="Удобный триммер с верхним расположением двигателя для ухода за газоном вокруг клумб и построек." data-price="4 590 руб.">Подробнее</button>
+            <button class="button button--primary product-card__button order-btn" type="button" data-product="Электрический триммер">
+              Заказать
+            </button>
+          </div>
         </article>
       </div>
     </section>
@@ -163,9 +187,138 @@
 
   <footer class="site-footer">
     <div class="site-footer__content">
-      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
+      <p class="site-footer__text">&copy; 2026 Магазин «Мастер на все руки». Все права защищены.</p>
+      <p class="site-footer__text">Телефон: +7 (800) 555-35-35</p>
     </div>
   </footer>
+
+  <!-- Модальное окно формы заявки -->
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <button type="button" class="order-dialog__close" id="close-order-dialog-top" aria-label="Закрыть окно">×</button>
+    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+
+    <form class="order-form order-dialog__form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-name">Имя</label>
+        <input
+          class="order-form__input"
+          id="order-name"
+          name="name"
+          type="text"
+          placeholder="Введите ваше имя"
+          minlength="2"
+          autocomplete="given-name"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-email">E-mail</label>
+        <input
+          class="order-form__input"
+          id="order-email"
+          name="email"
+          type="email"
+          placeholder="example@mail.ru"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-phone">Телефон</label>
+        <input
+          class="order-form__input"
+          id="order-phone"
+          name="phone"
+          type="tel"
+          inputmode="tel"
+          placeholder="+7 (900) 000-00-00"
+          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+          required
+        >
+        <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-date">Дата связи</label>
+        <input
+          class="order-form__input"
+          id="order-date"
+          name="date"
+          type="date"
+        >
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-topic">Тема заявки</label>
+        <select class="order-form__select" id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="product">Заказ товара</option>
+          <option value="consultation">Консультация</option>
+          <option value="delivery">Доставка</option>
+        </select>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="order-comment">Комментарий</label>
+        <textarea
+          class="order-form__textarea"
+          id="order-comment"
+          name="comment"
+          rows="4"
+          placeholder="Укажите дополнительную информацию"
+        ></textarea>
+      </div>
+
+      <div class="order-form__field order-form__field--checkbox">
+        <label class="order-form__checkbox-label">
+          <input
+            class="order-form__checkbox"
+            id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+          >
+          Я согласен на обработку данных
+        </label>
+      </div>
+
+      <div class="order-form__actions">
+        <button type="button" class="button button--secondary order-form__button" id="close-order-dialog">Закрыть</button>
+        <button type="submit" class="button button--primary order-form__button">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Модальное окно подробного описания товара -->
+  <dialog class="order-dialog detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+    <button type="button" class="detail-dialog__close" id="close-detail-dialog-top" aria-label="Закрыть окно">×</button>
+    <div class="detail-dialog__layout">
+      <img class="detail-dialog__image" id="detail-img" src="" alt="">
+      <section class="detail-dialog__content" aria-label="Информация о товаре">
+        <h2 class="order-dialog__title detail-dialog__title" id="detail-title"></h2>
+        <p class="detail-dialog__price">Цена: <span id="detail-price"></span></p>
+        <h3 class="detail-dialog__section-title">Описание</h3>
+        <p class="detail-dialog__description" id="detail-desc"></p>
+        <h3 class="detail-dialog__section-title">Характеристики</h3>
+        <ul class="detail-dialog__specs" id="detail-specs"></ul>
+      </section>
+    </div>
+    <div class="order-form__actions detail-dialog__actions">
+      <button type="button" class="button button--secondary order-form__button" id="close-detail-dialog">Закрыть</button>
+      <button type="button" class="button button--primary order-form__button" id="order-detail-button">Заказать</button>
+    </div>
+  </dialog>
+
+  <p class="success-message" id="success-message" hidden>
+    Форма успешно отправлена!
+  </p>
+
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Прокрутить наверх" hidden>
+  ↑
+</button>
 </body>
 </html>

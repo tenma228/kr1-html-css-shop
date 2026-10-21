@@ -1,72 +1,127 @@
-// Получаем модальное окно по id.
+// Модальное окно оформления заявки («Заказать»)
 const orderDialog = document.getElementById('order-dialog');
-
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
-
-// Получаем кнопку закрытия модального окна.
+const orderButtons = document.querySelectorAll('.order-btn');
 const closeDialogButton = document.getElementById('close-order-dialog');
-
-// Получаем скрытое поле, в которое будет записан выбранный товар.
 const selectedProductInput = document.getElementById('selected-product');
 
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
-
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
-
-    // Открываем модальное окно.
-    orderDialog.showModal();
+if (orderDialog && orderButtons.length > 0) {
+  orderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const productName = button.dataset.product;
+      if (selectedProductInput) {
+        selectedProductInput.value = productName;
+      }
+      orderDialog.showModal();
+    });
   });
-});
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
-// Получаем форму заявки.
-const orderForm = document.getElementById('order-form');
+  
+  if (closeDialogButton) {
+    closeDialogButton.addEventListener('click', () => {
+      orderDialog.close();
+    });
+  }
+}
 
-// Получаем сообщение об успешной отправке.
+// Форма отправки заявки
+const orderForm = document.getElementById('order-form');
 const successMessage = document.getElementById('success-message');
 
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
+if (orderForm) {
+  orderForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
-    }
-  });
-
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
+    const formElements = Array.from(orderForm.elements);
     formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
+      if (element.willValidate) {
+        element.removeAttribute('aria-invalid');
       }
     });
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
+    if (!orderForm.checkValidity()) {
+      formElements.forEach((element) => {
+        if (element.willValidate && !element.checkValidity()) {
+          element.setAttribute('aria-invalid', 'true');
+        }
+      });
+      orderForm.reportValidity();
+      return;
+    }
+
+    if (successMessage) {
+      successMessage.hidden = false;
+    }
+    orderForm.reset();
+    orderDialog.close();
+  });
+}
+
+// Модальное окно подробного описания («Подробнее»)
+const detailDialog = document.getElementById('detail-dialog');
+const detailButtons = document.querySelectorAll('.detail-btn');
+const closeDetailButton = document.getElementById('close-detail-dialog');
+const detailTitle = document.getElementById('detail-title');
+const detailDesc = document.getElementById('detail-desc');
+const detailPrice = document.getElementById('detail-price');
+const detailImg = document.getElementById('detail-img');
+
+if (detailDialog && detailButtons.length > 0) {
+  detailButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      detailTitle.textContent = btn.dataset.title;
+      detailDesc.textContent = btn.dataset.desc;
+      detailPrice.textContent = btn.dataset.price;
+
+      // Получаем картинку из соответствующей карточки
+      const card = btn.closest('.product-card');
+      if (card) {
+        const productImg = card.querySelector('.product-card__image');
+        if (productImg && detailImg) {
+          detailImg.src = productImg.src;
+          detailImg.alt = productImg.alt;
+        }
+      }
+
+      detailDialog.showModal();
+    });
+  });
+
+  if (closeDetailButton) {
+    closeDetailButton.addEventListener('click', () => {
+      detailDialog.close();
+    });
   }
+}
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+// Кнопка прокрутки наверх
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTopBtn = document.getElementById('scroll-top-btn');
 
-  // Очищаем форму.
-  orderForm.reset();
+  if (!scrollTopBtn) return;
 
-  // Закрываем модальное окно.
-  orderDialog.close();
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.removeAttribute('hidden');
+    } else {
+      scrollTopBtn.setAttribute('hidden', '');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Закрытие модального окна при клике на фоновую область (бэкдроп)
+const modals = document.querySelectorAll('dialog');
+
+modals.forEach((modal) => {
+  modal.addEventListener('click', (event) => {
+    // Если клик пришелся строго по самому тегу <dialog> (по его темному фону), а не по контенту
+    if (event.target === modal) {
+      modal.close();
+    }
+  });
 });

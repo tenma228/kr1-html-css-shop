@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Главная страница учебного интернет-магазина.">
-  <title>Учебный интернет-магазин</title>
+  <title>Главная — Мастер на все руки</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-header__logo" href="index.html">ShopProject</a>
+    <a class="site-header__logo" href="index.html">Мастер на все руки</a>
     <nav class="site-nav" aria-label="Основная навигация">
       <ul class="site-nav__list">
         <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html" aria-current="page">Главная</a></li>
@@ -28,100 +28,101 @@
 
 <main class="main-content">
   <section class="hero">
-    <h1 class="hero__title">Учебный интернет-магазин</h1>
+    <h1 class="hero__title">Мастер на все руки</h1>
     <p class="hero__text">
-      Многостраничный интернет-ресурс, разработанный в рамках учебного проекта.
+      Добро пожаловать в учебный интернет-магазин инструментов! Здесь вы найдете широкий ассортимент товаров для ремонта, строительства и садоводства. Мы предлагаем качественные инструменты по доступным ценам, а также полезные советы и инструкции для ваших проектов.
     </p>
     <a class="button button--primary hero__button" href="catalog.html">Перейти к товарам</a>
-  </section>
-
-  <section class="section advantages" id="advantages">
-    <h2 class="section__title advantages__title">Преимущества проекта</h2>
-    <ul class="advantages__list">
-      <li class="advantages__item">понятная HTML-структура;</li>
-      <li class="advantages__item">семантические блоки страницы;</li>
-      <li class="advantages__item">подключение внешнего CSS-файла;</li>
-      <li class="advantages__item">подготовка к разработке многостраничного сайта.</li>
-    </ul>
   </section>
 
   <section class="section catalog-preview" id="popular">
     <h2 class="section__title catalog-preview__title">Популярные товары</h2>
 
     <div class="products-grid catalog-preview__grid">
-      <article class="product-card product-card--bestseller catalog-preview__card" data-category="category 1">
+      <article class="product-card product-card--bestseller catalog-preview__card" data-category="Электроинструмент">
+        <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=2982fcd7626effe9a4617c14ace864bdcca2f678-5858040-images-thumbs&n=13" alt="Аккумуляторная дрель-шуруповерт" width="240" height="180">
         <span class="product-card__badge product-card__badge--bestseller">Хит продаж</span>
-        <p class="product-card__category">Категория 1</p>
-        <h3 class="product-card__title">Товар 1</h3>
-        <p class="product-card__description">Описание товара</p>
+        <p class="product-card__category">Электроинструмент</p>
+        <h3 class="product-card__title">Аккумуляторная дрель-шуруповерт</h3>
+        <p class="product-card__description">Мощный инструмент с двумя аккумуляторами и кейсом</p>
         <p class="product-card__availability">В наличии</p>
         <p class="product-card__rating" aria-label="Рейтинг 4,8 из 5">★★★★★ <span>4,8</span></p>
         <ul class="product-card__specs">
-          <li class="product-card__spec">Характеристика 1</li>
-          <li class="product-card__spec">Характеристика 2</li>
-          <li class="product-card__spec">Характеристика 3</li>
+          <li class="product-card__spec">Крутящий момент: 35 Нм</li>
+          <li class="product-card__spec">Емкость аккумулятора: 2.0 Ач</li>
+          <li class="product-card__spec">Быстрозажимной патрон</li>
         </ul>
-        <p class="product-card__price">Цена: <span class="product-card__price-value">X XXX руб.</span></p>
-        <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-          Заказать
-        </button>
+        <p class="product-card__price">Цена: <span class="product-card__price-value">6 490 руб.</span></p>
+        <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+          <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Аккумуляторная дрель-шуруповерт" data-desc="Надежный помощник для сборки мебели, сверления отверстий и закручивания крепежа. В комплекте два литий-ионных аккумулятора, зарядное устройство и прочный пластиковый кейс." data-price="6 490 руб.">Подробнее</button>
+          <button class="button button--primary product-card__button order-btn" type="button" data-product="Аккумуляторная дрель-шуруповерт">
+            Заказать
+          </button>
+        </div>
       </article>
 
-      <article class="product-card catalog-preview__card" data-category="category 2">
-        <p class="product-card__category">Категория 2</p>
-        <h3 class="product-card__title">Товар 2</h3>
-        <p class="product-card__description">Описание товара</p>
+      <article class="product-card catalog-preview__card" data-category="Садовая техника">
+        <img class="product-card__image" src="https://avatars.mds.yandex.net/i?id=87173ebf83e35363c8de2919709b0b04bd789d1c-10926796-images-thumbs&n=13" alt="Бензиновая газонокосилка" width="240" height="180">
+        <p class="product-card__category">Садовая техника</p>
+        <h3 class="product-card__title">Бензиновая газонокосилка</h3>
+        <p class="product-card__description">Самоходная модель с регулировкой высоты скашивания</p>
         <p class="product-card__availability--out">Нет в наличии</p>
         <p class="product-card__rating" aria-label="Рейтинг 4,6 из 5">★★★★★ <span>4,6</span></p>
         <ul class="product-card__specs">
-          <li class="product-card__spec">Характеристика 1</li>
-          <li class="product-card__spec">Характеристика 2</li>
-          <li class="product-card__spec">Характеристика 3</li>
+          <li class="product-card__spec">Ширина скашивания: 46 см</li>
+          <li class="product-card__spec">Объем травосборника: 50 л</li>
+          <li class="product-card__spec">Мощность: 3.5 л.с.</li>
         </ul>
-        <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
-        <button class="button button--secondary product-card__button" type="button" data-product="Товар 2">
-          Заказать
-        </button>
+        <p class="product-card__price">Цена: <span class="product-card__price-value">24 990 руб.</span></p>
+        <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+          <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Бензиновая газонокосилка" data-desc="Высокопроизводительная самоходная газонокосилка для ухода за большими участками. Оснащена вместительным травосборником и функцией мульчирования." data-price="24 990 руб.">Подробнее</button>
+          <button class="button button--primary product-card__button order-btn" type="button" data-product="Бензиновая газонокосилка">
+            Заказать
+          </button>
+        </div>
       </article>
 
-      <article class="product-card product-card--discount catalog-preview__card" data-category="category 3">
+      <article class="product-card product-card--discount catalog-preview__card" data-category="Ручной инструмент">
+        <img class="product-card__image" src="https://cdn.vseinstrumenti.ru/images/goods/ruchnoj-instrument/nabory-ruchnogo-instrumenta/1065872/560x504/180822179.jpg" alt="Набор слесарных инструментов" width="240" height="180">
         <span class="product-card__badge product-card__badge--discount">Скидка</span>
-        <p class="product-card__category">Категория 3</p>
-        <h3 class="product-card__title">Товар 3</h3>
-        <p class="product-card__description">Описание товара</p>
+        <p class="product-card__category">Ручной инструмент</p>
+        <h3 class="product-card__title">Набор слесарных инструментов</h3>
+        <p class="product-card__description">Универсальный комплект из 82 предметов в кейсе</p>
         <p class="product-card__availability">В наличии</p>
         <p class="product-card__rating" aria-label="Рейтинг 4,7 из 5">★★★★★ <span>4,7</span></p>
         <ul class="product-card__specs">
-          <li class="product-card__spec">Характеристика 1</li>
-          <li class="product-card__spec">Характеристика 2</li>
-          <li class="product-card__spec">Характеристика 3</li>
+          <li class="product-card__spec">Материал: хром-ванадиевая сталь</li>
+          <li class="product-card__spec">Трещотки с быстрым сбросом</li>
+          <li class="product-card__spec">Ударопрочный кейс</li>
         </ul>
         <p class="product-card__price">
-          Цена: <span class="product-card__price-old">Х ХХХ руб.</span>
-          <span class="product-card__price-value">Y YYY руб.</span>
+          Цена: <span class="product-card__price-old">7 500 руб.</span>
+          <span class="product-card__price-value">5 990 руб.</span>
         </p>
-        <button class="button button--secondary product-card__button" type="button" data-product="Товар 3">
-          Заказать
-        </button>
+        <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+          <button class="button button--secondary product-card__button detail-btn" type="button" data-title="Набор слесарных инструментов" data-desc="Профессиональный набор инструментов для авторемонта и домашних работ. Все элементы выполнены из прочной легированной стали и устойчивы к коррозии." data-price="5 990 руб.">Подробнее</button>
+          <button class="button button--primary product-card__button order-btn" type="button" data-product="Набор слесарных инструментов">
+            Заказать
+          </button>
+        </div>
       </article>
     </div>
   </section>
 
   <aside class="aside-info">
-    <h2 class="aside-info__title">Информация для студентов</h2>
+    <h2 class="aside-info__title">Важно</h2>
     <p class="aside-info__text">
-      Проект включает формы, модальное окно, дополнительные страницы,
-      Flex/Grid, БЭМ-структуру и адаптивное оформление.
+      Поделитесь своими впечатлениями о наших товарах! Мы стараемся стать лучше благодаря вашим отзывам.
     </p>
   </aside>
 </main>
 
-<footer class="site-footer" id="contacts">
-  <div class="site-footer__content">
-    <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
-  </div>
-</footer>
+<footer class="site-footer">
+    <div class="site-footer__content">
+      <p class="site-footer__text">&copy; 2026 Магазин «Мастер на все руки». Все права защищены.</p>
+      <p class="site-footer__text">Телефон: +7 (800) 555-35-35</p>
+    </div>
+  </footer>
 
 <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
   <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
@@ -222,8 +223,30 @@
   </form>
 </dialog>
 
+<!-- Модальное окно подробного описания товара -->
+<dialog class="order-dialog detail-dialog" id="detail-dialog" aria-labelledby="detail-title">
+  <div class="detail-dialog__layout">
+    <img class="detail-dialog__image" id="detail-img" src="" alt="">
+    <section class="detail-dialog__content" aria-label="Информация о товаре">
+      <h2 class="order-dialog__title detail-dialog__title" id="detail-title"></h2>
+      <p class="detail-dialog__price">Цена: <span id="detail-price"></span></p>
+      <h3 class="detail-dialog__section-title">Описание</h3>
+      <p class="detail-dialog__description" id="detail-desc"></p>
+      <h3 class="detail-dialog__section-title">Характеристики</h3>
+      <ul class="detail-dialog__specs" id="detail-specs"></ul>
+      <div class="order-form__actions">
+        <button type="button" class="button button--secondary order-form__button" id="close-detail-dialog">Закрыть</button>
+      </div>
+    </section>
+  </div>
+</dialog>
+
 <p class="success-message" id="success-message" hidden>
   Форма успешно отправлена!
 </p>
+
+<button class="scroll-top" id="scroll-top-btn" aria-label="Прокрутить наверх" hidden>
+  ↑
+</button>
 </body>
 </html>
