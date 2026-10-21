@@ -70,3 +70,27 @@ orderForm.addEventListener('submit', (event) => {
   // Закрываем модальное окно.
   orderDialog.close();
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+  if (!scrollTopBtn) return;
+
+  // Показываем или скрываем кнопку при прокрутке
+  window.addEventListener('scroll', () => {
+    // Если прокрутили вниз больше чем на 300px — показываем кнопку
+    if (window.scrollY > 300) {
+      scrollTopBtn.removeAttribute('hidden');
+    } else {
+      scrollTopBtn.setAttribute('hidden', '');
+    }
+  });
+
+  // Плавная прокрутка наверх при клике
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});

@@ -81,9 +81,12 @@
             <li class="product-card__spec">Характеристика 3</li>
           </ul>
           <p class="product-card__price">Цена: <span class="product-card__price-value">Х ХХХ руб.</span></p>
-          <button class="button button--secondary product-card__button" type="button" data-product="Товар 1">
-            Заказать
-          </button>
+          <div class="product-card__actions" style="display: flex; gap: 8px; margin-top: auto;">
+            <a class="button button--secondary product-card__button" href="product-1.html">Подробнее</a>
+          <button class="button button--primary product-card__button" type="button" data-product="Товар 1">
+      Заказать
+    </button>
+  </div>
         </article>
 
         <article class="product-card product-card--discount" data-category="category 3">
@@ -167,5 +170,8 @@
       <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
     </div>
   </footer>
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Прокрутить наверх" hidden>
+  ↑
+</button>
 </body>
 </html>

@@ -618,3 +618,32 @@ a:focus-visible {
     width: 100%;
   }
 }
+
+/* ===============================
+   Кнопка «Наверх»
+   =============================== */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.scroll-top:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.scroll-top:active {
+  transform: translateY(1px);
+}
